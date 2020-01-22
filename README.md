@@ -5,16 +5,33 @@ A demo project using Gorilla/mux, GORM, Postgres and MySQL.
 ## Getting started
 1. Clone the project
 2. Install [docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-3. Pull DB containers
+3. Linux post install [instructions](https://docs.docker.com/install/linux/linux-postinstall/)
+4. Pull DB containers
 ```bash
 docker pull mysql
 docker pull postgres
+```
+5. Setup containers
+```bash
+DB_PASSWORD=4us2know
+# mysql
+docker run \
+    --name mysql
+    -p 3306:3306 \ 
+    -e MYSQL_ROOT_PASSWORD=${DB_PASSWORD} \
+    -d mysql
+# postgres
+docker run \
+    --name postgres \
+    -p 5432:5432 \
+    -e POSTGRES_PASSWORD=${DB_PASSWORD} \
+    -d postgres
 ```
 The seeder file in api/seed will do the requisite setup.  
 
 ## Testing
 #### cURL scripts
-In the scripts/curl directory, there are reference scripts to interact with the API. I'm a fan of cli tools, but you can just as well use other API testing tools like [SoapUI](https://www.soapui.org/) or [Postman](https://www.getpostman.com/). More fleshed out tools like the aforementioned are a good idea anyway for automated tests in your CI/CD pipelines.
+In the scripts/curl directory, there are reference scripts to interact with the API. I'm a fan of cli tools, but you can just as well use other API testing tools like [SoapUI](https://www.soapui.org/) or [Postman](https://www.getpostman.com/). More sophisticated tools like the aforementioned are a good idea anyway for automated tests in your CI/CD pipelines.
 
 ## References
 * [gitconnected blog](https://levelup.gitconnected.com/crud-restful-api-with-go-gorm-jwt-postgres-mysql-and-testing-460a85ab7121)
