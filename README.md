@@ -16,8 +16,8 @@ docker pull postgres
 DB_PASSWORD=4us2know
 # mysql
 docker run \
-    --name mysql
-    -p 3306:3306 \ 
+    --name mysql \
+    -p 3306:3306 \
     -e MYSQL_ROOT_PASSWORD=${DB_PASSWORD} \
     -d mysql
 # postgres
