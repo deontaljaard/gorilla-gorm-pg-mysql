@@ -27,7 +27,8 @@ docker run \
     -e POSTGRES_PASSWORD=${DB_PASSWORD} \
     -d postgres
 ```
-The seeder file in api/seed will do the requisite setup.  
+6. Use psql and mysql clients to create DBs matching the name in `.env`. ([DBeaver](https://dbeaver.io/) is useful).
+The seeder file in `api/seed` will do the requisite setup.  
 
 ## Testing
 #### cURL scripts
