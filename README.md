@@ -38,11 +38,13 @@ go run main.go
 
 #### Inside Docker
 ```bash
-docker build -t api .
+# build and image 
+docker build -t dt/api:latest .
+# create a container and run it
 docker run \
     --name api \
-    -p 8080:8080 
-    -d api
+    -p 8080:8080 \
+    -d dt/api:latest
 ```
 
 ## Testing
